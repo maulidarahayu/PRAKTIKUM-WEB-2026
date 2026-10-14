@@ -61,7 +61,3 @@
       - Media Query `@media (max-width: 700px) { nav ul { flex-direction: column; gap: 8px; } }`
 4. Customisasi Pribadi (sesuai tugas): Mengganti accent color menjadi pink `#df9797 / #9b5353`, menengahkan header, dan mengatur jarak antar section.
 5. Commit: `git commit -m "menyelesikan modul 3 styling dan layout modern css"` dan `git commit -m "menambahkan custom accent color dan hover effect pada modul 3"`
-
----
-
-Mau aku bikinin langsung file `README.md` nya juga biar tinggal upload ke GitHub?
