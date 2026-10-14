@@ -1,6 +1,3 @@
-Ini lanjutan README kamu yang sudah aku sesuaikan sama isi PDF Modul 2 & 3, tinggal copy-paste ya Siti:
-
----
 
 # Repositori Praktikum Pemrograman Web 2026
 *Informasi Mahasiswa:*
