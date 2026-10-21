@@ -51,46 +51,53 @@ const updateStats = (dataList) => {
 };
 
 const renderProjects = (filteredList) => {
- const container = document.getElementById("project-list");
- if (!container) return;
- if (filteredList.length === 0) {
- container.innerHTML = "<p style='text-align: center; color: #64748b; padding: 20px;'>Tidak ada proyek pada kategori ini.</p>";
- return;
- }
- const htmlString = filteredList.map(proj => {
- const badgeClass = proj.completed ? "badge-success" : "badge-pending";
- const statusText = proj.completed ? "Selesai" : "Dalam Pengerjaan";
- return `
- <div class="project-card">
+    const container = document.getElementById("project-list");
+    if (!container) return;
 
-  <div class="project-info">
- <span class="project-category">${proj.category}</span>
- <h4>${proj.title}</h4>
- <p class="project-budget">${formatRupiah(proj.budget)}</p>
- </div>
- <div>
- <span class="badge ${badgeClass}">${statusText}</span>
- </div>
- </div>
- `;
- }).join("");
- container.innerHTML = htmlString;
+    if (filteredList.length === 0) {
+        container.innerHTML = "<p style='text-align: center; color: #64748b; padding: 20px;'>Tidak ada proyek pada kategori ini.</p>";
+        return;
+    }
+
+    const htmlString = filteredList.map(proj => {
+        const badgeClass = proj.completed ? "badge-success" : "badge-pending";
+        const statusText = proj.completed ? "Selesai" : "Dalam Pengerjaan";
+        
+        return `
+            <div class="project-card">
+
+            <div class="project-info">
+                <span class="project-category">${proj.category}</span>
+                <h4>${proj.title}</h4>
+                <p class="project-budget">${formatRupiah(proj.budget)}</p>
+            </div>
+                <div>
+                    <span class="badge ${badgeClass}">${statusText}</span>
+                </div>
+            </div>
+        `;
+    }).join("");
+
+    container.innerHTML = htmlString;
 };
+
 document.addEventListener("DOMContentLoaded", () => {
- renderProjects(projects);
- updateStats(projects);
- const filterButtons = document.querySelectorAll(".btn-filter");
- filterButtons.forEach(btn => {
- btn.addEventListener("click", (e) => {
- filterButtons.forEach(b => b.classList.remove("active"));
- e.target.classList.add("active");
- const selectedCategory = e.target.getAttribute("data-category");
- if (selectedCategory === "Semua") {
- renderProjects(projects);
- } else {
- const filtered = projects.filter(p => p.category === selectedCategory);
- renderProjects(filtered);
- }
- });
- });
+    renderProjects(projects);
+    updateStats(projects);
+    
+    const filterButtons = document.querySelectorAll(".btn-filter");
+    filterButtons.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            filterButtons.forEach(b => b.classList.remove("active"));
+            e.target.classList.add("active");
+            
+            const selectedCategory = e.target.getAttribute("data-category");
+            if (selectedCategory === "Semua") {
+                renderProjects(projects);
+            } else {
+                const filtered = projects.filter(p => p.category === selectedCategory);
+                renderProjects(filtered);
+            }
+        });
+    });
 });
