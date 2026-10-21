@@ -1,18 +1,21 @@
 // File:dasar_logika.js
 // Praktik Dasar Sintaks, Tipe Data, dan Arrow Function
 
-const namaProgramer = "Siti Maulida Rahayu";
-const tahunMulai = 2024;
-const tahunSekarang = new Date().getFullYear()
+const namaProgramer="Siti Maulida Rahayu";
+const tahunMulai= 2024;
+const tahunSekarang=new Date().getFullYear();
 
 // Arrow Function menghitung masa pengalaman
-const hitungPengalaman = (mulai, sekarang) => sekarang - mulai;
-const masaKerja = hitungPengalaman(tahunMulai, tahunSekarang);
+const hitungPengalaman = (mulai,sekarang) => sekarang-mulai;
+const masaKerja=hitungPengalaman(tahunMulai, tahunSekarang);
+
+// Evaluasi kondisi dengan Ternary operator
+const statusSenioritas=masaKerja>=2? "Mind-Level Developer":"Junior Developer";
 
 console.log("===INFORMASI PENGEMBANG==");
-console.log('Nama       :${namaProgramer}');
-console.log('Pengalaman :${masaKerja}tahun');
-console.log('Kategori   :${statusSenioritas}');
+console.log(`Nama       :${namaProgramer}`);
+console.log(`Pengalaman :${masaKerja}tahun`);
+console.log(`Kategori   :${statusSenioritas}`);
 
 // Menguji Strict Equality vs Loose Equality
 console.log("\n===UJI PERBANDINGAN TIPE DATA===");
