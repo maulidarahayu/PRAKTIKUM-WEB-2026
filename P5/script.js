@@ -46,6 +46,15 @@ JSON.stringify(tasks));
         // Validasi input sederhana
         if (taskText.length < 3) {
             taskInput.classList.add("error");
+            inputError.textContent = "minimal 3 karakter";
+            inputError.style.display = "block";
+            return;
+        }
+
+        // maksimal 5 tugas
+        if (getTasks().length >= 5) {
+            taskInput.classList.add("error");
+            inputError.textContent = "Maksimal Menambahkan 5 Tugas";
             inputError.style.display = "block";
             return;
         }
@@ -84,4 +93,5 @@ todoList
     
     // Render pertama kali saat halaman selesai dimuat
     renderTasks();
+    todoform.querySelector('button[type="submit"]').disabled = getTasks().length >= 5;
 });
