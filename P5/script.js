@@ -72,7 +72,7 @@ JSON.stringify(tasks));
         renderTasks();
     });
     
-    // 5. Tangani klik tombol Selesai dan Hapus menggunakan Event Listener pada
+    // 5. Tangani klik tombol Selesai dan Hapus menggunakan Event Listener pada todolist
 todoList
     todoList.addEventListener("click", (e) => {
         const index = e.target.dataset.index;
